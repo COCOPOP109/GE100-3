@@ -1,0 +1,41 @@
+import React from 'react';
+import { motion } from 'framer-motion';
+
+interface SectionProps {
+  id: string;
+  className?: string;
+  children: React.ReactNode;
+  backgroundImage?: string;
+}
+
+export const Section: React.FC<SectionProps> = ({ id, className = '', children, backgroundImage }) => {
+  return (
+    <section 
+      id={id} 
+      className={`relative w-full h-screen snap-start flex flex-col items-center justify-center overflow-hidden ${className}`}
+    >
+      {backgroundImage && (
+        <div className="absolute inset-0 z-0">
+          <img 
+            src={backgroundImage} 
+            alt="Background" 
+            className="w-full h-full object-cover opacity-10" 
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-white/80 to-white/90" />
+        </div>
+      )}
+      
+      <div className="container mx-auto px-6 md:px-12 relative z-10 w-full h-full flex flex-col">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: false, amount: 0.3 }}
+          className="w-full h-full flex flex-col justify-center"
+        >
+          {children}
+        </motion.div>
+      </div>
+    </section>
+  );
+};
