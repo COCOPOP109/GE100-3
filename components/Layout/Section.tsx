@@ -12,7 +12,7 @@ export const Section: React.FC<SectionProps> = ({ id, className = '', children, 
   return (
     <section 
       id={id} 
-      className={`relative w-full h-screen snap-start flex flex-col items-center justify-center overflow-hidden ${className}`}
+      className={`relative w-full min-h-[100dvh] md:h-screen md:snap-start flex flex-col items-center justify-center md:overflow-hidden ${className}`}
     >
       {backgroundImage && (
         <div className="absolute inset-0 z-0">
@@ -25,12 +25,12 @@ export const Section: React.FC<SectionProps> = ({ id, className = '', children, 
         </div>
       )}
       
-      <div className="container mx-auto px-6 md:px-12 relative z-10 w-full h-full flex flex-col">
+      <div className="container mx-auto px-4 md:px-12 relative z-10 w-full h-full flex flex-col justify-center py-24 md:py-0">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          viewport={{ once: false, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1 }}
           className="w-full h-full flex flex-col justify-center"
         >
           {children}
