@@ -1,4 +1,5 @@
 
+
 import { NavItem, Member, NewsItem, StandardItem } from './types';
 
 export const NAV_ITEMS: NavItem[] = [
@@ -12,7 +13,7 @@ export const NAV_ITEMS: NavItem[] = [
 export const INITIATORS = [
   "中国电力发展促进会 (CEPPC)",
   "中国工业节能与清洁生产协会工业碳效专委会 (CIECCPA)",
-  "清华大学碳中和研究院",
+  "清华大学气候变化与可持续发展研究院(ICCSD)",
   "2060零碳企业行动倡议(0CCI)"
 ];
 
@@ -51,7 +52,7 @@ export const NEWS_DATA: NewsItem[] = [
   {
     id: 3,
     date: "2025-11-12",
-    title: "GE100共识在COP30中国角边会向全球发布",
+    title: "GE1OO共识在COP30中国角边会向全球发布",
     image: "https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?q=80&w=2532&auto=format&fit=crop",
     link: "#"
   }
@@ -68,7 +69,7 @@ export const SAMPLE_MEMBERS: Member[] = [
   { name: "晶澳科技", level: "铂金级", joinYear: "2023", targetYear: "2050", industry: "新能源/制造", location: "北京" },
   { name: "德力西电气", level: "金牌级", joinYear: "2023", targetYear: "2050", industry: "电气制造", location: "温州" },
   { name: "协鑫能科", level: "铂金级", joinYear: "2024", targetYear: "2045", industry: "清洁能源", location: "苏州" },
-  { name: "金风慧能", level: "技术伙伴", joinYear: "2024", targetYear: "2040", industry: "风电服务", location: "北京" },
+  { name: "金风慧能", level: "铂金级", joinYear: "2024", targetYear: "2040", industry: "风电服务", location: "北京" },
   { name: "盒马", level: "金牌级", joinYear: "2024", targetYear: "2050", industry: "新零售", location: "上海" },
   { name: "HRS驿舒", level: "金牌级", joinYear: "2024", targetYear: "2050", industry: "企业服务", location: "上海" },
   { name: "COMIN中国", level: "金牌级", joinYear: "2023", targetYear: "2045", industry: "咨询服务", location: "深圳" },

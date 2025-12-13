@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Infinity } from 'lucide-react';
 import { NAV_ITEMS } from '../../constants';
@@ -30,8 +31,9 @@ export const Navbar: React.FC = () => {
           <div className="flex justify-between items-center h-20">
             {/* Logo */}
             <div className="flex-shrink-0 flex items-center cursor-pointer group" onClick={() => scrollToSection('home')}>
-              <div className="w-10 h-10 rounded-xl bg-[#00C08B] flex items-center justify-center mr-3 shadow-sm group-hover:scale-105 transition-transform duration-300">
-                <Infinity className="w-6 h-6 text-white" strokeWidth={3} />
+              <div className="w-10 h-10 rounded-xl bg-[#00C08B] flex flex-col items-center justify-center mr-3 shadow-sm group-hover:scale-105 transition-transform duration-300 pt-0.5">
+                <Infinity className="w-5 h-5 text-white -rotate-90" strokeWidth={3} />
+                <div className="w-3 h-[2.5px] bg-white rounded-full mt-[1px]"></div>
               </div>
               <div className="flex items-center h-full">
                   <span className="font-extrabold text-2xl tracking-tight text-slate-900 leading-none">GE1OO</span>
