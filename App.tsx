@@ -484,8 +484,8 @@ const App: React.FC = () => {
 
             <div className="grid grid-cols-2 gap-3 md:gap-4 relative order-1 md:order-2">
                <img 
-                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop" 
-                alt="Consensus Reached" 
+                src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=2074&auto=format&fit=crop" 
+                alt="Global Nature" 
                 className="rounded-2xl md:rounded-3xl shadow-lg w-full h-32 md:h-64 object-cover translate-y-3 md:translate-y-8"
                />
                <img 
