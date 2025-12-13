@@ -404,9 +404,10 @@ const App: React.FC = () => {
 
         {/* --- Screen 5: Framework --- */}
         <Section id="about-framework" className="bg-slate-50 bg-pattern-grid">
-          <div className="max-w-7xl mx-auto w-full text-center space-y-8 md:space-y-16">
-             <div className="max-w-3xl mx-auto">
-               <h2 className="text-2xl md:text-4xl font-bold mb-3 md:mb-6">
+          {/* Added h-full and justify-center for vertical centering */}
+          <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-center space-y-4 md:space-y-16 px-1 md:px-0">
+             <div className="max-w-3xl mx-auto text-center shrink-0">
+               <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-6">
                  “绿电百分百”<br/><GradientText>行动目标框架</GradientText>
                </h2>
                <p className="text-slate-500 text-xs md:text-lg">
@@ -414,37 +415,43 @@ const App: React.FC = () => {
                </p>
              </div>
 
-             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+             {/* Mobile: Horizontal Scroll, Desktop: Grid */}
+             <div className="flex md:grid md:grid-cols-3 gap-3 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory no-scrollbar pb-2 md:pb-0 px-1 md:px-0">
                 {[
                   { 
                     title: "01. 开展绿电消费信息披露", 
                     desc: "定期公开披露绿电消费信息，持续提升绿电消费比例和质量。",
-                    icon: <FileText className="w-8 h-8 md:w-10 md:h-10" />,
+                    icon: <FileText className="w-5 h-5 md:w-10 md:h-10" />,
                     color: "emerald"
                   },
                   { 
                     title: "02. 设定绿电100%目标", 
                     desc: "设定不晚于2050年的“绿电100%”目标，优先实现自身运营“全绿电”，积极推动价值链绿电全覆盖。",
-                    icon: <Target className="w-8 h-8 md:w-10 md:h-10" />,
+                    icon: <Target className="w-5 h-5 md:w-10 md:h-10" />,
                     color: "teal"
                   },
                   { 
                     title: "03. 推动绿电价值链创新", 
                     desc: "推动扩大绿电消费、提升与电力系统友好互动的技术与产业协同创新，拓展更多绿电消费解决方案。",
-                    icon: <Zap className="w-8 h-8 md:w-10 md:h-10" />,
+                    icon: <Zap className="w-5 h-5 md:w-10 md:h-10" />,
                     color: "cyan"
                   }
                 ].map((card, i) => (
-                   <div key={i} className="bg-white p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col items-center text-center group">
-                      <div className={`w-16 h-16 md:w-24 md:h-24 rounded-full bg-${card.color}-50 text-${card.color}-600 flex items-center justify-center mb-4 md:mb-8 group-hover:scale-110 transition-transform duration-300`}>
+                   <div key={i} className="min-w-[80vw] md:min-w-0 snap-center bg-white p-6 md:p-10 rounded-2xl md:rounded-[2.5rem] border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col items-center text-center group h-auto md:h-full justify-center">
+                      <div className={`w-12 h-12 md:w-24 md:h-24 rounded-full bg-${card.color}-50 text-${card.color}-600 flex items-center justify-center mb-3 md:mb-8 group-hover:scale-110 transition-transform duration-300`}>
                         {card.icon}
                       </div>
-                      <h3 className="text-base md:text-xl font-bold text-slate-900 mb-2 md:mb-4">{card.title}</h3>
-                      <p className="text-slate-600 leading-relaxed text-xs md:text-sm line-clamp-3 md:line-clamp-none">
+                      <h3 className="text-sm md:text-xl font-bold text-slate-900 mb-2 md:mb-4">{card.title}</h3>
+                      <p className="text-slate-600 leading-relaxed text-[10px] md:text-sm line-clamp-4 md:line-clamp-none">
                         {card.desc}
                       </p>
                    </div>
                 ))}
+             </div>
+             
+             {/* Mobile Hint */}
+             <div className="md:hidden flex justify-center items-center gap-1 text-[10px] text-slate-400 font-medium animate-pulse">
+                <span>滑动查看更多</span> <ArrowRight className="w-3 h-3" />
              </div>
           </div>
         </Section>
@@ -623,179 +630,174 @@ const App: React.FC = () => {
         </Section>
 
         {/* =================================================================
-           4. 资源中心 (Resources)
+           4. 资源中心 (Resources) - OPTIMIZED FOR MOBILE
            ================================================================= */}
 
         {/* --- Screen 9: Standards & Cases --- */}
         <Section id="resources" className="bg-white bg-pattern-waves">
-           <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-center gap-6 md:gap-10">
-              <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+           <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-evenly md:justify-center gap-2 md:gap-6 lg:gap-8 p-1 md:p-0">
+              
+              {/* Header: Compact on Mobile */}
+              <div className="flex flex-row items-end justify-between gap-2 shrink-0 md:mb-2">
                  <div>
-                    <h2 className="text-3xl md:text-4xl font-bold">
+                    <h2 className="text-2xl md:text-4xl font-bold">
                       资源<GradientText>中心</GradientText>
                     </h2>
-                    <p className="text-slate-500 mt-2 text-sm md:text-lg">引领行业规范，定义绿色未来</p>
+                    <p className="text-slate-500 mt-1 md:mt-2 text-xs md:text-lg">引领行业规范，定义绿色未来</p>
                  </div>
-                 <Button variant="outline" size="sm" className="self-start md:self-auto text-xs md:text-base">查看更多案例</Button>
+                 <Button variant="outline" size="sm" className="hidden xs:flex scale-75 origin-right md:scale-100 self-center md:self-auto text-xs md:text-base whitespace-nowrap">查看更多</Button>
               </div>
 
-              {/* Standards List */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6">
-                 {STANDARDS.map((std, i) => (
-                   <div key={i} className="group p-4 md:p-6 rounded-2xl md:rounded-3xl bg-slate-50 border border-slate-200 hover:border-emerald-400 hover:shadow-md transition-all cursor-pointer flex flex-col h-full">
-                      <div className="inline-flex self-start px-2 py-1 bg-white rounded border border-slate-200 text-[10px] font-mono text-slate-500 mb-2 md:mb-4 font-bold">
-                        {std.code}
-                      </div>
-                      <h3 className="text-sm md:text-base font-bold text-slate-900 mb-2 md:mb-4 leading-snug flex-1">
-                        {std.title}
-                      </h3>
-                      <div className="text-[10px] md:text-xs text-slate-400 pt-2 md:pt-3 border-t border-slate-200/50 mt-auto">
-                        {std.publisher}
-                      </div>
-                   </div>
-                 ))}
+              {/* Standards List: Horizontal Scroll on Mobile */}
+              <div className="w-full shrink-0">
+                 <div className="flex items-center gap-2 mb-2 md:mb-4">
+                    <div className="w-1 h-3 md:h-5 bg-emerald-500 rounded-full"></div>
+                    <h3 className="text-xs md:text-xl font-bold text-slate-800">团体标准</h3>
+                 </div>
+                 
+                 <div className="flex md:grid md:grid-cols-3 gap-3 md:gap-5 overflow-x-auto md:overflow-visible pb-2 md:pb-0 snap-x snap-mandatory no-scrollbar px-1 md:px-0">
+                   {STANDARDS.map((std, i) => (
+                     <div key={i} className="min-w-[85vw] md:min-w-0 snap-center group p-4 md:p-5 rounded-2xl md:rounded-2xl bg-slate-50 border border-slate-200 hover:border-emerald-400 hover:shadow-md transition-all cursor-pointer flex flex-col justify-between h-auto md:h-40">
+                        <div>
+                          <div className="inline-flex self-start px-2 py-1 bg-white rounded border border-slate-200 text-[10px] font-mono text-slate-500 mb-2 md:mb-3 font-bold">
+                            {std.code}
+                          </div>
+                          <h3 className="text-sm md:text-base font-bold text-slate-900 mb-1 md:mb-2 leading-snug line-clamp-2">
+                            {std.title}
+                          </h3>
+                        </div>
+                        <div className="text-[10px] md:text-xs text-slate-400 pt-2 border-t border-slate-200/50 truncate">
+                          {std.publisher}
+                        </div>
+                     </div>
+                   ))}
+                 </div>
               </div>
 
-              {/* Cases Grid */}
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-6">
-                 {CASES.map((c, i) => (
-                    <div key={i} className={`group relative aspect-[16/10] rounded-2xl overflow-hidden cursor-pointer shadow-sm border border-slate-100 ${i === 2 ? 'col-span-2 md:col-span-1' : ''}`}>
-                       <img src={c.img} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Case" />
-                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-3 md:p-6">
-                          <span className="text-emerald-400 text-[8px] md:text-xs font-bold uppercase mb-0.5 md:mb-1 tracking-wider">{c.subtitle}</span>
-                          <h4 className="text-white font-bold text-xs md:text-lg leading-snug">{c.title}</h4>
-                       </div>
-                    </div>
-                 ))}
+              {/* Cases Grid: Horizontal Scroll on Mobile */}
+              <div className="w-full shrink-0">
+                 <div className="flex items-center gap-2 mb-2 md:mb-4">
+                    <div className="w-1 h-3 md:h-5 bg-emerald-500 rounded-full"></div>
+                    <h3 className="text-xs md:text-xl font-bold text-slate-800">优秀案例</h3>
+                 </div>
+
+                 <div className="flex md:grid md:grid-cols-3 gap-3 md:gap-5 overflow-x-auto md:overflow-visible pb-2 md:pb-0 snap-x snap-mandatory no-scrollbar px-1 md:px-0">
+                   {CASES.map((c, i) => (
+                      <div key={i} className={`min-w-[70vw] md:min-w-0 snap-center group relative aspect-[16/9] md:aspect-auto md:h-44 rounded-2xl overflow-hidden cursor-pointer shadow-sm border border-slate-100 ${i === 2 ? 'md:col-span-1' : ''}`}>
+                         <img src={c.img} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Case" />
+                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-3 md:p-5">
+                            <span className="text-emerald-400 text-[8px] md:text-xs font-bold uppercase mb-0.5 md:mb-1 tracking-wider">{c.subtitle}</span>
+                            <h4 className="text-white font-bold text-xs md:text-base leading-snug line-clamp-2">{c.title}</h4>
+                         </div>
+                      </div>
+                   ))}
+                 </div>
               </div>
+
            </div>
         </Section>
 
         {/* --- Screen 10: Event Submission --- */}
         <Section id="resources-events" className="bg-slate-50 bg-pattern-grid">
-           <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-16 items-center">
+           {/* Added h-full and justify-center to parent to center vertical content */}
+           <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-center">
               
-              {/* Left Column: Event Preview - Swapped order: Text first (order-1), Form second (order-2) on mobile */}
-              <div className="space-y-4 md:space-y-8 lg:pr-8 order-1 lg:order-1">
-                 <div className="w-10 h-10 md:w-12 md:h-12 bg-emerald-600 rounded-lg flex items-center justify-center text-white shadow-lg shadow-emerald-600/20">
-                    <Calendar className="w-5 h-5 md:w-6 md:h-6" />
-                 </div>
-                 
-                 <div className="space-y-2 md:space-y-4">
-                    <h2 className="text-2xl md:text-4xl font-bold text-slate-900">
-                      活动<GradientText>预告</GradientText>
-                    </h2>
-                    <p className="text-slate-600 text-sm md:text-lg leading-relaxed">
-                       GE1OO定期举办行业研讨会及重磅峰会论坛活动。欢迎成员单位积极申报案例，共塑行业标杆。
-                    </p>
-                 </div>
+              {/* Horizontal Scroll Wrapper for Mobile */}
+              <div className="flex md:grid md:grid-cols-2 gap-4 md:gap-16 items-center overflow-x-auto snap-x snap-mandatory no-scrollbar w-full px-1 md:px-0 pb-2 md:pb-0">
+                  
+                  {/* Left Column: Event Preview */}
+                  <div className="min-w-[88vw] md:min-w-0 snap-center space-y-3 md:space-y-8 lg:pr-8 shrink-0 flex flex-col justify-center p-1">
+                     <div className="w-10 h-10 md:w-12 md:h-12 bg-emerald-600 rounded-lg flex items-center justify-center text-white shadow-lg shadow-emerald-600/20">
+                        <Calendar className="w-5 h-5 md:w-6 md:h-6" />
+                     </div>
+                     
+                     <div className="space-y-2 md:space-y-4">
+                        <h2 className="text-2xl md:text-4xl font-bold text-slate-900">
+                          活动<GradientText>预告</GradientText>
+                        </h2>
+                        <p className="text-slate-600 text-sm md:text-lg leading-relaxed line-clamp-2 md:line-clamp-none">
+                           GE1OO定期举办行业研讨会及重磅峰会论坛活动。欢迎成员单位积极申报案例，共塑行业标杆。
+                        </p>
+                     </div>
 
-                 {/* Specific Event Cards - Redesigned to be distinct from the form */}
-                 <div className="space-y-4">
-                    {/* Card 1: Roundtable */}
-                    <div className="relative bg-white rounded-2xl border border-slate-200 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] p-1 hover:border-emerald-300 hover:shadow-[0_10px_30px_-10px_rgba(16,185,129,0.15)] transition-all duration-300 group cursor-pointer overflow-hidden">
-                        {/* Left Accent Bar */}
-                        <div className="absolute top-0 left-0 w-1.5 h-full bg-emerald-500"></div>
-                        
-                        <div className="flex items-center gap-4 p-3 md:p-4 pl-5">
-                             {/* Date Block - Calendar Style */}
-                             <div className="flex-shrink-0 w-14 h-14 md:w-16 md:h-16 bg-slate-50 rounded-xl border border-slate-100 flex flex-col items-center justify-center text-slate-600 group-hover:bg-emerald-50 group-hover:border-emerald-100 group-hover:text-emerald-600 transition-colors shadow-inner">
-                                 <span className="text-[10px] uppercase font-bold tracking-wider opacity-60">12月</span>
-                                 <span className="text-xl md:text-2xl font-bold leading-none">19</span>
-                             </div>
-
-                             {/* Content */}
-                             <div className="flex-1 flex flex-col justify-center min-w-0">
-                                 <div className="flex items-center gap-2 mb-1">
-                                     <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-700 tracking-wide">
-                                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5 animate-pulse"></span>
-                                       即将开始
-                                     </span>
+                     {/* Event Cards */}
+                     <div className="space-y-3 md:space-y-4">
+                        {/* Card 1 */}
+                        <div className="relative bg-white rounded-xl md:rounded-2xl border border-slate-200 shadow-sm p-1 transition-all group overflow-hidden">
+                            <div className="absolute top-0 left-0 w-1.5 h-full bg-emerald-500"></div>
+                            <div className="flex items-center gap-3 p-2 md:p-4 pl-4">
+                                 <div className="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-slate-50 rounded-lg border border-slate-100 flex flex-col items-center justify-center text-slate-600">
+                                     <span className="text-[9px] uppercase font-bold opacity-60">12月</span>
+                                     <span className="text-lg md:text-2xl font-bold leading-none">19</span>
                                  </div>
-                                 <h3 className="text-sm md:text-base font-bold text-slate-900 group-hover:text-emerald-700 transition-colors mb-1 truncate">碳生产力圆桌会议</h3>
-                                 <div className="flex items-center gap-3 text-xs text-slate-500">
-                                     <div className="flex items-center gap-1">
-                                         <Clock className="w-3 h-3" /> <span>2025</span>
-                                     </div>
-                                     <div className="flex items-center gap-1">
+                                 <div className="flex-1 min-w-0">
+                                     <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-bold bg-emerald-100 text-emerald-700 mb-1">即将开始</span>
+                                     <h3 className="text-sm md:text-base font-bold text-slate-900 truncate">碳生产力圆桌会议</h3>
+                                     <div className="flex items-center gap-2 text-[10px] text-slate-500 mt-0.5">
                                          <MapPin className="w-3 h-3" /> <span>杭州</span>
                                      </div>
                                  </div>
-                             </div>
-
-                             {/* Arrow - Circle Button Style */}
-                             <div className="flex items-center justify-center pr-1 md:pr-2">
-                                 <div className="w-8 h-8 rounded-full border border-slate-100 flex items-center justify-center text-slate-300 group-hover:border-emerald-200 group-hover:text-emerald-500 group-hover:bg-emerald-50 transition-all">
-                                     <ArrowRight className="w-4 h-4" />
+                                 <div className="pr-1">
+                                     <ArrowRight className="w-4 h-4 text-slate-300" />
                                  </div>
-                             </div>
+                            </div>
                         </div>
-                    </div>
 
-                    {/* Card 2: Case Review */}
-                    <div className="relative bg-white rounded-2xl border border-slate-200 shadow-[0_4px_20px_-10px_rgba(0,0,0,0.05)] p-1 hover:border-sky-300 hover:shadow-[0_10px_30px_-10px_rgba(14,165,233,0.15)] transition-all duration-300 group cursor-pointer overflow-hidden">
-                        {/* Left Accent Bar - Different Color */}
-                        <div className="absolute top-0 left-0 w-1.5 h-full bg-sky-500"></div>
-                        
-                        <div className="flex items-center gap-4 p-3 md:p-4 pl-5">
-                             {/* Date Block - Calendar Style */}
-                             <div className="flex-shrink-0 w-14 h-14 md:w-16 md:h-16 bg-slate-50 rounded-xl border border-slate-100 flex flex-col items-center justify-center text-slate-600 group-hover:bg-sky-50 group-hover:border-sky-100 group-hover:text-sky-600 transition-colors shadow-inner">
-                                 <span className="text-[10px] uppercase font-bold tracking-wider opacity-60">2026</span>
-                                 <span className="text-xl md:text-2xl font-bold leading-none">1月</span>
-                             </div>
-
-                             {/* Content */}
-                             <div className="flex-1 flex flex-col justify-center min-w-0">
-                                 <div className="flex items-center gap-2 mb-1">
-                                     <span className="inline-flex items-center px-2 py-0.5 rounded text-[10px] font-bold bg-sky-100 text-sky-700 tracking-wide">
-                                       年度评审
-                                     </span>
+                        {/* Card 2 */}
+                        <div className="relative bg-white rounded-xl md:rounded-2xl border border-slate-200 shadow-sm p-1 transition-all group overflow-hidden">
+                            <div className="absolute top-0 left-0 w-1.5 h-full bg-sky-500"></div>
+                            <div className="flex items-center gap-3 p-2 md:p-4 pl-4">
+                                 <div className="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-slate-50 rounded-lg border border-slate-100 flex flex-col items-center justify-center text-slate-600">
+                                     <span className="text-[9px] uppercase font-bold opacity-60">2026</span>
+                                     <span className="text-lg md:text-2xl font-bold leading-none">1月</span>
                                  </div>
-                                 <h3 className="text-sm md:text-base font-bold text-slate-900 group-hover:text-sky-700 transition-colors mb-1 truncate">碳生产力优秀案例评审</h3>
-                                 <div className="flex items-center gap-3 text-xs text-slate-500">
-                                     <div className="flex items-center gap-1">
+                                 <div className="flex-1 min-w-0">
+                                     <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-bold bg-sky-100 text-sky-700 mb-1">年度评审</span>
+                                     <h3 className="text-sm md:text-base font-bold text-slate-900 truncate">碳生产力优秀案例评审</h3>
+                                     <div className="flex items-center gap-2 text-[10px] text-slate-500 mt-0.5">
                                          <Clock className="w-3 h-3" /> <span>2026年1月</span>
                                      </div>
                                  </div>
-                             </div>
-
-                             {/* Arrow - Circle Button Style */}
-                             <div className="flex items-center justify-center pr-1 md:pr-2">
-                                 <div className="w-8 h-8 rounded-full border border-slate-100 flex items-center justify-center text-slate-300 group-hover:border-sky-200 group-hover:text-sky-500 group-hover:bg-sky-50 transition-all">
-                                     <ArrowRight className="w-4 h-4" />
+                                 <div className="pr-1">
+                                     <ArrowRight className="w-4 h-4 text-slate-300" />
                                  </div>
-                             </div>
+                            </div>
                         </div>
-                    </div>
-                 </div>
+                     </div>
+                     
+                     {/* Mobile Hint */}
+                     <div className="md:hidden flex items-center gap-1 text-[10px] text-slate-400 font-medium pt-1 animate-pulse">
+                        <span>向左滑动申报案例</span> <ArrowRight className="w-3 h-3" />
+                     </div>
+                  </div>
+
+                  {/* Right Column: Submission Form */}
+                  <div className="min-w-[88vw] md:min-w-0 snap-center bg-white p-4 md:p-10 rounded-2xl shadow-xl border border-slate-100 shrink-0 self-center">
+                     <h3 className="text-lg md:text-2xl font-bold text-slate-900 mb-4 md:mb-8">申报<GradientText>优秀案例</GradientText></h3>
+                     
+                     <form className="space-y-3 md:space-y-6" onSubmit={(e) => e.preventDefault()}>
+                        <div className="space-y-1">
+                           <label className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-wider">企业名称</label>
+                           <input type="text" className="w-full h-9 md:h-12 px-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-emerald-500 outline-none text-xs md:text-sm" placeholder="请输入企业全称" />
+                        </div>
+
+                        <div className="space-y-1">
+                           <label className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-wider">联系邮箱</label>
+                           <input type="email" className="w-full h-9 md:h-12 px-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-emerald-500 outline-none text-xs md:text-sm" placeholder="example@company.com" />
+                        </div>
+
+                        <div className="space-y-1">
+                           <label className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-wider">案例简介</label>
+                           <textarea className="w-full h-20 md:h-32 p-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-emerald-500 outline-none resize-none text-xs md:text-sm" placeholder="简要描述案例亮点..."></textarea>
+                        </div>
+
+                        <button className="w-full py-2.5 md:py-4 bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-lg font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2 mt-2 text-sm md:text-base">
+                           提交申报 <ChevronRight className="w-4 h-4" />
+                        </button>
+                     </form>
+                  </div>
+                  
               </div>
-
-              {/* Right Column: Submission Form */}
-              <div className="bg-white p-5 md:p-10 rounded-xl shadow-xl border border-slate-100 order-2 lg:order-2">
-                 <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-4 md:mb-8">欢迎申报<GradientText>2025碳生产力优秀案例</GradientText></h3>
-                 
-                 <form className="space-y-4 md:space-y-6" onSubmit={(e) => e.preventDefault()}>
-                    <div className="space-y-1 md:space-y-2">
-                       <label className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-wider">企业名称</label>
-                       <input type="text" className="w-full h-10 md:h-12 px-3 md:px-4 rounded-lg bg-slate-50 border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all text-sm" />
-                    </div>
-
-                    <div className="space-y-1 md:space-y-2">
-                       <label className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-wider">联系邮箱</label>
-                       <input type="email" className="w-full h-10 md:h-12 px-3 md:px-4 rounded-lg bg-slate-50 border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all text-sm" />
-                    </div>
-
-                    <div className="space-y-1 md:space-y-2">
-                       <label className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-wider">案例简介</label>
-                       <textarea className="w-full h-24 md:h-32 p-3 md:p-4 rounded-lg bg-slate-50 border border-slate-200 focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/20 outline-none transition-all resize-none text-sm"></textarea>
-                    </div>
-
-                    <button className="w-full py-3 md:py-4 bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-lg font-bold hover:shadow-lg hover:shadow-emerald-500/30 transition-all flex items-center justify-center gap-2 mt-2 md:mt-4 text-sm md:text-base">
-                       提交申报 <ChevronRight className="w-4 h-4" />
-                    </button>
-                 </form>
-              </div>
-
            </div>
         </Section>
 
