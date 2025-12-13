@@ -703,98 +703,104 @@ const App: React.FC = () => {
            <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-center">
               
               {/* Horizontal Scroll Wrapper for Mobile */}
-              <div className="flex md:grid md:grid-cols-2 gap-4 md:gap-16 items-center overflow-x-auto snap-x snap-mandatory no-scrollbar w-full px-1 md:px-0 pb-2 md:pb-0">
+              <div className="flex md:grid md:grid-cols-2 gap-4 md:gap-16 items-center overflow-x-auto snap-x snap-mandatory no-scrollbar w-full px-0 md:px-0 pb-2 md:pb-0">
                   
                   {/* Left Column: Event Preview */}
-                  <div className="min-w-[88vw] md:min-w-0 snap-center space-y-3 md:space-y-8 lg:pr-8 shrink-0 flex flex-col justify-center p-1">
-                     <div className="w-10 h-10 md:w-12 md:h-12 bg-emerald-600 rounded-lg flex items-center justify-center text-white shadow-lg shadow-emerald-600/20">
-                        <Calendar className="w-5 h-5 md:w-6 md:h-6" />
-                     </div>
-                     
-                     <div className="space-y-2 md:space-y-4">
-                        <h2 className="text-2xl md:text-4xl font-bold text-slate-900">
-                          活动<GradientText>预告</GradientText>
-                        </h2>
-                        <p className="text-slate-600 text-sm md:text-lg leading-relaxed line-clamp-2 md:line-clamp-none">
-                           GE1OO定期举办行业研讨会及重磅峰会论坛活动。欢迎成员单位积极申报案例，共塑行业标杆。
-                        </p>
-                     </div>
-
-                     {/* Event Cards */}
-                     <div className="space-y-3 md:space-y-4">
-                        {/* Card 1 */}
-                        <div className="relative bg-white rounded-xl md:rounded-2xl border border-slate-200 shadow-sm p-1 transition-all group overflow-hidden">
-                            <div className="absolute top-0 left-0 w-1.5 h-full bg-emerald-500"></div>
-                            <div className="flex items-center gap-3 p-2 md:p-4 pl-4">
-                                 <div className="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-slate-50 rounded-lg border border-slate-100 flex flex-col items-center justify-center text-slate-600">
-                                     <span className="text-[9px] uppercase font-bold opacity-60">12月</span>
-                                     <span className="text-lg md:text-2xl font-bold leading-none">19</span>
-                                 </div>
-                                 <div className="flex-1 min-w-0">
-                                     <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-bold bg-emerald-100 text-emerald-700 mb-1">即将开始</span>
-                                     <h3 className="text-sm md:text-base font-bold text-slate-900 truncate">碳生产力圆桌会议</h3>
-                                     <div className="flex items-center gap-2 text-[10px] text-slate-500 mt-0.5">
-                                         <MapPin className="w-3 h-3" /> <span>杭州</span>
-                                     </div>
-                                 </div>
-                                 <div className="pr-1">
-                                     <ArrowRight className="w-4 h-4 text-slate-300" />
-                                 </div>
-                            </div>
+                  {/* Updated to min-w-[100vw] container and w-[92vw] inner for perfect centering and full width feel */}
+                  <div className="min-w-[100vw] md:min-w-0 snap-center shrink-0 flex flex-col justify-center items-center md:items-stretch">
+                     <div className="w-[92vw] md:w-full space-y-3 md:space-y-8 lg:pr-8 p-1 md:p-0">
+                        <div className="w-10 h-10 md:w-12 md:h-12 bg-emerald-600 rounded-lg flex items-center justify-center text-white shadow-lg shadow-emerald-600/20">
+                           <Calendar className="w-5 h-5 md:w-6 md:h-6" />
+                        </div>
+                        
+                        <div className="space-y-2 md:space-y-4">
+                           <h2 className="text-2xl md:text-4xl font-bold text-slate-900">
+                             活动<GradientText>预告</GradientText>
+                           </h2>
+                           <p className="text-slate-600 text-sm md:text-lg leading-relaxed line-clamp-2 md:line-clamp-none">
+                              GE1OO定期举办行业研讨会及重磅峰会论坛活动。欢迎成员单位积极申报案例，共塑行业标杆。
+                           </p>
                         </div>
 
-                        {/* Card 2 */}
-                        <div className="relative bg-white rounded-xl md:rounded-2xl border border-slate-200 shadow-sm p-1 transition-all group overflow-hidden">
-                            <div className="absolute top-0 left-0 w-1.5 h-full bg-sky-500"></div>
-                            <div className="flex items-center gap-3 p-2 md:p-4 pl-4">
-                                 <div className="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-slate-50 rounded-lg border border-slate-100 flex flex-col items-center justify-center text-slate-600">
-                                     <span className="text-[9px] uppercase font-bold opacity-60">2026</span>
-                                     <span className="text-lg md:text-2xl font-bold leading-none">1月</span>
-                                 </div>
-                                 <div className="flex-1 min-w-0">
-                                     <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-bold bg-sky-100 text-sky-700 mb-1">年度评审</span>
-                                     <h3 className="text-sm md:text-base font-bold text-slate-900 truncate">碳生产力优秀案例评审</h3>
-                                     <div className="flex items-center gap-2 text-[10px] text-slate-500 mt-0.5">
-                                         <Clock className="w-3 h-3" /> <span>2026年1月</span>
-                                     </div>
-                                 </div>
-                                 <div className="pr-1">
-                                     <ArrowRight className="w-4 h-4 text-slate-300" />
-                                 </div>
-                            </div>
+                        {/* Event Cards */}
+                        <div className="space-y-3 md:space-y-4">
+                           {/* Card 1 */}
+                           <div className="relative bg-white rounded-xl md:rounded-2xl border border-slate-200 shadow-sm p-1 transition-all group overflow-hidden">
+                               <div className="absolute top-0 left-0 w-1.5 h-full bg-emerald-500"></div>
+                               <div className="flex items-center gap-3 p-2 md:p-4 pl-4">
+                                    <div className="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-slate-50 rounded-lg border border-slate-100 flex flex-col items-center justify-center text-slate-600">
+                                        <span className="text-[9px] uppercase font-bold opacity-60">12月</span>
+                                        <span className="text-lg md:text-2xl font-bold leading-none">19</span>
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                        <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-bold bg-emerald-100 text-emerald-700 mb-1">即将开始</span>
+                                        <h3 className="text-sm md:text-base font-bold text-slate-900 truncate">碳生产力圆桌会议</h3>
+                                        <div className="flex items-center gap-2 text-[10px] text-slate-500 mt-0.5">
+                                            <MapPin className="w-3 h-3" /> <span>杭州</span>
+                                        </div>
+                                    </div>
+                                    <div className="pr-1">
+                                        <ArrowRight className="w-4 h-4 text-slate-300" />
+                                    </div>
+                               </div>
+                           </div>
+
+                           {/* Card 2 */}
+                           <div className="relative bg-white rounded-xl md:rounded-2xl border border-slate-200 shadow-sm p-1 transition-all group overflow-hidden">
+                               <div className="absolute top-0 left-0 w-1.5 h-full bg-sky-500"></div>
+                               <div className="flex items-center gap-3 p-2 md:p-4 pl-4">
+                                    <div className="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-slate-50 rounded-lg border border-slate-100 flex flex-col items-center justify-center text-slate-600">
+                                        <span className="text-[9px] uppercase font-bold opacity-60">2026</span>
+                                        <span className="text-lg md:text-2xl font-bold leading-none">1月</span>
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                        <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[9px] font-bold bg-sky-100 text-sky-700 mb-1">年度评审</span>
+                                        <h3 className="text-sm md:text-base font-bold text-slate-900 truncate">碳生产力优秀案例评审</h3>
+                                        <div className="flex items-center gap-2 text-[10px] text-slate-500 mt-0.5">
+                                            <Clock className="w-3 h-3" /> <span>2026年1月</span>
+                                        </div>
+                                    </div>
+                                    <div className="pr-1">
+                                        <ArrowRight className="w-4 h-4 text-slate-300" />
+                                    </div>
+                               </div>
+                           </div>
                         </div>
-                     </div>
-                     
-                     {/* Mobile Hint */}
-                     <div className="md:hidden flex items-center gap-1 text-[10px] text-slate-400 font-medium pt-1 animate-pulse">
-                        <span>向左滑动申报案例</span> <ArrowRight className="w-3 h-3" />
+                        
+                        {/* Mobile Hint */}
+                        <div className="md:hidden flex items-center gap-1 text-[10px] text-slate-400 font-medium pt-1 animate-pulse">
+                           <span>向左滑动申报案例</span> <ArrowRight className="w-3 h-3" />
+                        </div>
                      </div>
                   </div>
 
                   {/* Right Column: Submission Form */}
-                  <div className="min-w-[88vw] md:min-w-0 snap-center bg-white p-4 md:p-10 rounded-2xl shadow-xl border border-slate-100 shrink-0 self-center">
-                     <h3 className="text-lg md:text-2xl font-bold text-slate-900 mb-4 md:mb-8">申报<GradientText>优秀案例</GradientText></h3>
-                     
-                     <form className="space-y-3 md:space-y-6" onSubmit={(e) => e.preventDefault()}>
-                        <div className="space-y-1">
-                           <label className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-wider">企业名称</label>
-                           <input type="text" className="w-full h-9 md:h-12 px-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-emerald-500 outline-none text-xs md:text-sm" placeholder="请输入企业全称" />
-                        </div>
+                  {/* Updated to min-w-[100vw] container and w-[92vw] inner */}
+                  <div className="min-w-[100vw] md:min-w-0 snap-center shrink-0 flex flex-col justify-center items-center md:items-stretch">
+                     <div className="w-[92vw] md:w-full bg-white p-4 md:p-10 rounded-2xl shadow-xl border border-slate-100">
+                        <h3 className="text-lg md:text-2xl font-bold text-slate-900 mb-4 md:mb-8">申报<GradientText>碳生产力案例</GradientText></h3>
+                        
+                        <form className="space-y-3 md:space-y-6" onSubmit={(e) => e.preventDefault()}>
+                           <div className="space-y-1">
+                              <label className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-wider">企业名称</label>
+                              <input type="text" className="w-full h-9 md:h-12 px-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-emerald-500 outline-none text-xs md:text-sm" placeholder="请输入企业全称" />
+                           </div>
 
-                        <div className="space-y-1">
-                           <label className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-wider">联系邮箱</label>
-                           <input type="email" className="w-full h-9 md:h-12 px-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-emerald-500 outline-none text-xs md:text-sm" placeholder="example@company.com" />
-                        </div>
+                           <div className="space-y-1">
+                              <label className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-wider">联系邮箱</label>
+                              <input type="email" className="w-full h-9 md:h-12 px-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-emerald-500 outline-none text-xs md:text-sm" placeholder="example@company.com" />
+                           </div>
 
-                        <div className="space-y-1">
-                           <label className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-wider">案例简介</label>
-                           <textarea className="w-full h-20 md:h-32 p-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-emerald-500 outline-none resize-none text-xs md:text-sm" placeholder="简要描述案例亮点..."></textarea>
-                        </div>
+                           <div className="space-y-1">
+                              <label className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-wider">案例简介</label>
+                              <textarea className="w-full h-20 md:h-32 p-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-emerald-500 outline-none resize-none text-xs md:text-sm" placeholder="简要描述案例亮点..."></textarea>
+                           </div>
 
-                        <button className="w-full py-2.5 md:py-4 bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-lg font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2 mt-2 text-sm md:text-base">
-                           提交申报 <ChevronRight className="w-4 h-4" />
-                        </button>
-                     </form>
+                           <button className="w-full py-2.5 md:py-4 bg-gradient-to-r from-emerald-600 to-teal-700 text-white rounded-lg font-bold hover:shadow-lg transition-all flex items-center justify-center gap-2 mt-2 text-sm md:text-base">
+                              提交申报 <ChevronRight className="w-4 h-4" />
+                           </button>
+                        </form>
+                     </div>
                   </div>
                   
               </div>
