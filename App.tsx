@@ -703,7 +703,7 @@ const App: React.FC = () => {
         <Section id="services" className="bg-slate-50 bg-pattern-grid">
           <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-center">
             {/* Title */}
-            <div className="text-center mb-6 md:mb-16 shrink-0">
+            <div className="text-center mb-4 md:mb-16 shrink-0">
                <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4">
                  应用<GradientText>工具</GradientText>
                </h2>
@@ -712,21 +712,25 @@ const App: React.FC = () => {
                </p>
             </div>
 
-            {/* Cards - Horizontal Scroll on Mobile, Grid on Desktop */}
-            <div className="flex md:grid md:grid-cols-2 gap-4 md:gap-12 px-4 md:px-0 overflow-x-auto md:overflow-visible snap-x snap-mandatory no-scrollbar pb-4 md:pb-0 items-stretch h-auto">
+            {/* Cards - Vertical Stack on Mobile (Compact), Grid on Desktop */}
+            <div className="flex flex-col md:grid md:grid-cols-2 gap-3 md:gap-12 px-4 md:px-0 items-stretch justify-center h-auto md:h-auto">
                 {/* App 1 */}
-                <div className="min-w-[85vw] md:min-w-0 snap-center group bg-white rounded-2xl md:rounded-[2rem] p-6 md:p-10 shadow-lg md:shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-emerald-200 transition-all hover:-translate-y-2 relative overflow-hidden flex flex-col h-auto">
+                <div className="group bg-white rounded-2xl md:rounded-[2rem] p-5 md:p-10 shadow-lg md:shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-emerald-200 transition-all hover:-translate-y-2 relative overflow-hidden flex flex-col h-auto md:h-full">
                      <div className="absolute top-0 right-0 p-4 md:p-6 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <BarChart3 className="w-24 h-24 md:w-32 md:h-32" />
+                        <BarChart3 className="w-20 h-20 md:w-32 md:h-32" />
                      </div>
                      <div className="relative z-10 flex flex-col h-full items-start">
-                         <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-4 md:mb-6">
-                            <Monitor className="w-5 h-5 md:w-7 md:h-7" />
+                         {/* Mobile: Icon + Title Row. Desktop: Icon top, Title bottom */}
+                         <div className="flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-0 mb-3 md:mb-6 w-full">
+                             <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 md:mb-6">
+                                <Monitor className="w-5 h-5 md:w-7 md:h-7" />
+                             </div>
+                             <h3 className="text-base md:text-2xl font-bold text-slate-900 leading-tight">产品碳足迹数智服务应用</h3>
                          </div>
-                         <h3 className="text-lg md:text-2xl font-bold text-slate-900 mb-2 md:mb-3">产品碳足迹数智服务应用</h3>
-                         <p className="text-slate-600 text-xs md:text-base mb-6 md:mb-8 flex-grow leading-relaxed">为企业提供综合性碳足迹服务平台</p>
-                         <a href="https://ccmatch.net/" target="_blank" rel="noopener noreferrer" className="w-full mt-auto">
-                            <Button className="w-full justify-between group-hover:shadow-emerald-500/30 text-xs md:text-base">
+                         
+                         <p className="text-slate-600 text-xs md:text-base mb-4 md:mb-8 flex-grow leading-relaxed line-clamp-2 md:line-clamp-none">为企业提供综合性碳足迹服务平台</p>
+                         <a href="http://cclca.ccmatch.net/login?redirect=%2Flca" target="_blank" rel="noopener noreferrer" className="w-full mt-auto">
+                            <Button className="w-full justify-between group-hover:shadow-emerald-500/30 text-xs md:text-base py-2 md:py-2.5">
                                立即使用 <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
                             </Button>
                          </a>
@@ -734,28 +738,27 @@ const App: React.FC = () => {
                 </div>
 
                 {/* App 2 */}
-                <div className="min-w-[85vw] md:min-w-0 snap-center group bg-white rounded-2xl md:rounded-[2rem] p-6 md:p-10 shadow-lg md:shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-blue-200 transition-all hover:-translate-y-2 relative overflow-hidden flex flex-col h-auto">
+                <div className="group bg-white rounded-2xl md:rounded-[2rem] p-5 md:p-10 shadow-lg md:shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-blue-200 transition-all hover:-translate-y-2 relative overflow-hidden flex flex-col h-auto md:h-full">
                      <div className="absolute top-0 right-0 p-4 md:p-6 opacity-5 group-hover:opacity-10 transition-opacity">
-                        <Globe className="w-24 h-24 md:w-32 md:h-32" />
+                        <Globe className="w-20 h-20 md:w-32 md:h-32" />
                      </div>
                      <div className="relative z-10 flex flex-col h-full items-start">
-                         <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center mb-4 md:mb-6">
-                            <FileText className="w-5 h-5 md:w-7 md:h-7" />
+                         {/* Mobile: Icon + Title Row. Desktop: Icon top, Title bottom */}
+                         <div className="flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-0 mb-3 md:mb-6 w-full">
+                            <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 md:mb-6">
+                                <FileText className="w-5 h-5 md:w-7 md:h-7" />
+                            </div>
+                            <h3 className="text-base md:text-2xl font-bold text-slate-900 leading-tight">CBAM 辅助填报应用</h3>
                          </div>
-                         <h3 className="text-lg md:text-2xl font-bold text-slate-900 mb-2 md:mb-3">CBAM 辅助填报应用</h3>
-                         <p className="text-slate-600 text-xs md:text-base mb-6 md:mb-8 flex-grow leading-relaxed">帮助企业快速生成欧盟碳边境调节机制（CBAM）报告</p>
+
+                         <p className="text-slate-600 text-xs md:text-base mb-4 md:mb-8 flex-grow leading-relaxed line-clamp-2 md:line-clamp-none">帮助企业快速生成欧盟碳边境调节机制（CBAM）报告</p>
                          <a href="http://cclca.ccmatch.net/cbam" target="_blank" rel="noopener noreferrer" className="w-full mt-auto">
-                            <Button className="w-full justify-between bg-gradient-to-r from-blue-600 to-indigo-600 hover:shadow-blue-500/30 text-xs md:text-base">
+                            <Button className="w-full justify-between bg-gradient-to-r from-blue-600 to-indigo-600 hover:shadow-blue-500/30 text-xs md:text-base py-2 md:py-2.5">
                                立即使用 <ArrowUpRight className="w-4 h-4 md:w-5 md:h-5" />
                             </Button>
                          </a>
                      </div>
                 </div>
-            </div>
-
-            {/* Mobile Hint */}
-            <div className="md:hidden flex justify-center items-center gap-1 text-[10px] text-slate-400 font-medium animate-pulse mt-4">
-               <span>滑动查看更多</span> <ArrowRight className="w-3 h-3" />
             </div>
           </div>
         </Section>
