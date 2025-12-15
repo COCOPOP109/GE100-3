@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { Navbar } from './components/Layout/Navbar';
 import { Section } from './components/Layout/Section';
@@ -74,7 +73,7 @@ const App: React.FC = () => {
             <div className="inline-flex items-center px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-[10px] md:text-xs font-semibold tracking-[0.2em] uppercase mb-1 md:mb-2">
               Green Electricity 100%
             </div>
-            <h1 className="text-3xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-none text-white drop-shadow-xl">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-none text-white drop-shadow-xl">
               绿电百分百<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">行动倡议 (GE1OO)</span>
             </h1>
@@ -84,14 +83,14 @@ const App: React.FC = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-6 pt-3 md:pt-8">
               <Button 
                 size="md"
-                className="bg-white text-emerald-900 hover:bg-emerald-50 border-0 w-full sm:w-auto md:px-8 md:py-3.5 md:text-lg" 
+                className="bg-white text-emerald-900 hover:bg-emerald-50 border-0 w-1/2 sm:w-auto md:px-8 md:py-3.5 md:text-lg" 
                 onClick={() => document.getElementById('join')?.scrollIntoView({behavior: 'smooth'})}
               >
                 加入我们
               </Button>
               <Button 
                 size="md"
-                className="bg-black/30 backdrop-blur-md border border-white/30 text-white hover:bg-white/10 w-full sm:w-auto md:px-8 md:py-3.5 md:text-lg" 
+                className="bg-black/30 backdrop-blur-md border border-white/30 text-white hover:bg-white/10 w-1/2 sm:w-auto md:px-8 md:py-3.5 md:text-lg" 
                 onClick={() => document.getElementById('about')?.scrollIntoView({behavior: 'smooth'})}
               >
                 了解更多
@@ -356,46 +355,49 @@ const App: React.FC = () => {
 
         {/* --- Screen 4: Goals --- */}
         <Section id="about" className="bg-white bg-pattern-waves">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 items-center max-w-7xl mx-auto w-full h-full md:h-auto">
-             <div className="relative h-48 md:h-full flex flex-col justify-center order-2 md:order-1">
-                <div className="relative rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-2xl aspect-video md:aspect-[4/3] group h-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-16 items-center max-w-7xl mx-auto w-full h-full md:h-auto content-center">
+             
+             {/* Image Column - Mobile Order 2 (Bottom) */}
+             <div className="relative h-32 xs:h-40 md:h-full flex flex-col justify-center order-2 md:order-1 shrink-0">
+                <div className="relative rounded-xl md:rounded-[2rem] overflow-hidden shadow-2xl aspect-video md:aspect-[4/3] group h-full w-full">
                    <img 
                     src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=2074&auto=format&fit=crop" 
                     alt="Sustainable Future" 
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                    />
                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                   <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 text-white">
-                      <div className="text-2xl md:text-4xl font-bold">2050</div>
+                   <div className="absolute bottom-2 left-3 md:bottom-8 md:left-8 text-white">
+                      <div className="text-xl md:text-4xl font-bold">2050</div>
                       <div className="text-[10px] md:text-sm opacity-80">实现100%绿电转型目标</div>
                    </div>
                 </div>
              </div>
 
-             <div className="space-y-6 md:space-y-10 order-1 md:order-2">
-                <div>
-                  <div className="inline-block px-3 py-1 bg-emerald-50 text-emerald-700 text-[10px] md:text-xs font-bold rounded-full mb-3 md:mb-4">OUR MISSION</div>
-                  <h2 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6">
+             {/* Text Column - Mobile Order 1 (Top) */}
+             <div className="space-y-2 md:space-y-10 order-1 md:order-2 flex flex-col justify-center">
+                <div className="shrink-0">
+                  <div className="inline-block px-2 py-0.5 md:px-3 md:py-1 bg-emerald-50 text-emerald-700 text-[10px] md:text-xs font-bold rounded-full mb-1 md:mb-4">OUR MISSION</div>
+                  <h2 className="text-2xl md:text-5xl font-bold mb-1 md:mb-6 leading-tight">
                     倡议<GradientText>目标</GradientText>
                   </h2>
-                  <p className="text-sm md:text-lg text-slate-600 leading-relaxed font-light">
+                  <p className="text-xs md:text-lg text-slate-600 leading-relaxed font-light line-clamp-3 md:line-clamp-none">
                     作为国内首个聚焦绿电消费的行动倡议，GE1OO围绕绿电消费信息披露标准建设，着重解决绿电消费在企业碳核算、可持续信息披露等领域规范衔接与标准互认问题。
                   </p>
                 </div>
 
-                <div className="space-y-3 md:space-y-4">
+                <div className="space-y-2 md:space-y-4 shrink-0">
                    <h3 className="text-[10px] md:text-sm font-bold text-slate-400 uppercase tracking-widest">三大核心方向</h3>
-                   <div className="space-y-3 md:space-y-4">
+                   <div className="space-y-1.5 md:space-y-4">
                      {[
                        "推动企业披露绿电使用占比",
                        "拓展终端场景绿电消纳",
                        "引导更多企业于2050年前实现100%绿电转型"
                      ].map((item, i) => (
-                       <div key={i} className="flex items-center gap-3 md:gap-4 p-3 md:p-5 rounded-xl md:rounded-2xl bg-slate-50 border border-slate-100 hover:border-emerald-200 transition-all">
-                          <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 shrink-0">
-                            <ChevronRight className="w-4 h-4 md:w-5 md:h-5" />
+                       <div key={i} className="flex items-center gap-2 md:gap-4 p-2 md:p-5 rounded-lg md:rounded-2xl bg-slate-50 border border-slate-100 hover:border-emerald-200 transition-all">
+                          <div className="w-5 h-5 md:w-8 md:h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 shrink-0">
+                            <ChevronRight className="w-3 h-3 md:w-5 md:h-5" />
                           </div>
-                          <span className="text-sm md:text-lg font-medium text-slate-800">{item}</span>
+                          <span className="text-xs md:text-lg font-medium text-slate-800 line-clamp-1 md:line-clamp-none">{item}</span>
                        </div>
                      ))}
                    </div>
@@ -569,9 +571,11 @@ const App: React.FC = () => {
                      </div>
                   </div>
                   <div className="flex flex-row gap-2 md:gap-4 w-full md:w-auto">
-                     <Button variant="outline" size="sm" className="bg-white hover:bg-emerald-50 border-slate-200 hover:border-emerald-200 text-slate-600 hover:text-emerald-700 flex-1 md:flex-initial text-xs md:text-sm">
-                        目标框架文档 ↳
-                     </Button>
+                     <a href="https://www.wjx.top/vm/hJmnRdz.aspx" target="_blank" rel="noopener noreferrer" className="flex-1 md:flex-initial">
+                        <Button variant="outline" size="sm" className="w-full bg-white hover:bg-emerald-50 border-slate-200 hover:border-emerald-200 text-slate-600 hover:text-emerald-700 text-xs md:text-sm">
+                           目标框架文档 ↳
+                        </Button>
+                     </a>
                      <Button variant="outline" size="sm" className="bg-white hover:bg-emerald-50 border-slate-200 hover:border-emerald-200 text-slate-600 hover:text-emerald-700 flex-1 md:flex-initial text-xs md:text-sm">
                         技术指南 PDF ↳
                      </Button>
@@ -637,7 +641,7 @@ const App: React.FC = () => {
 
         {/* --- Screen 9: Standards & Cases --- */}
         <Section id="resources" className="bg-white bg-pattern-waves">
-           <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-evenly md:justify-center gap-2 md:gap-6 lg:gap-8 p-1 md:p-0">
+           <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-evenly md:justify-center gap-2 md:gap-6 lg:gap-8 p-1 md:p-0 md:translate-y-7">
               
               {/* Header: Compact on Mobile */}
               <div className="flex flex-row items-end justify-between gap-2 shrink-0 md:mb-2">
@@ -1050,7 +1054,7 @@ const App: React.FC = () => {
             
             <div className="mt-2 md:mt-4 flex justify-center text-[10px] md:text-xs text-slate-400 pb-0">
                <div className="text-center">
-                  Copyright © 2025     绿电百分百行动倡议  版权所有   京ICP备17022229号
+                  ©2025 GE1OO  技术支持：湖州新能源云碳中和研究院   备案号：浙ICP备2024078405号-2
                </div>
             </div>
           </div>
