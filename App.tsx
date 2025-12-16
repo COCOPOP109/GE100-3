@@ -423,20 +423,20 @@ const App: React.FC = () => {
              <div className="flex md:grid md:grid-cols-3 gap-3 md:gap-8 overflow-x-auto md:overflow-visible snap-x snap-mandatory no-scrollbar pb-2 md:pb-0 px-1 md:px-0">
                 {[
                   { 
-                    title: "01. 设定绿电100%目标", 
-                    desc: "设定不晚于2050年的“绿电100%”目标，优先实现自身运营“全绿电”，积极推动价值链绿电全覆盖。",
+                    title: "01. 开展绿电消费信息披露", 
+                    desc: "定期公开披露绿电消费信息，持续提升绿电消费比例和质量。",
                     icon: <FileText className="w-5 h-5 md:w-10 md:h-10" />,
                     color: "emerald"
                   },
                   { 
-                    title: "02. 推动绿电价值链创新", 
-                    desc: "推动扩大绿电消费、提升与电力系统友好互动的技术与产业协同创新，拓展更多绿电消费解决方案。",
+                    title: "02. 设定绿电100%目标", 
+                    desc: "设定不晚于2050年的“绿电100%”目标，优先实现自身运营“全绿电”，积极推动价值链绿电全覆盖。",
                     icon: <Target className="w-5 h-5 md:w-10 md:h-10" />,
                     color: "teal"
                   },
                   { 
-                    title: "03. 开展绿电消费信息披露", 
-                    desc: "定期公开披露绿电消费信息，持续提升绿电消费比例和质量。",
+                    title: "03. 推动绿电价值链创新", 
+                    desc: "推动扩大绿电消费、提升与电力系统友好互动的技术与产业协同创新，拓展更多绿电消费解决方案。",
                     icon: <Zap className="w-5 h-5 md:w-10 md:h-10" />,
                     color: "cyan"
                   }
