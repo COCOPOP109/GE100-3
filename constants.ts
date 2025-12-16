@@ -66,10 +66,10 @@ export const CASES = [
 
 export const SAMPLE_MEMBERS: Member[] = [
   { name: "小米", level: "铂金级", joinYear: "2023", targetYear: "2040", industry: "科技/消费电子", location: "北京" },
-  { name: "晶澳科技", level: "铂金级", joinYear: "2023", targetYear: "2050", industry: "新能源/制造", location: "北京" },
+  { name: "晶澳科技", level: "金牌级", joinYear: "2023", targetYear: "2050", industry: "新能源/制造", location: "北京" },
   { name: "德力西电气", level: "金牌级", joinYear: "2023", targetYear: "2050", industry: "电气制造", location: "温州" },
-  { name: "协鑫能科", level: "铂金级", joinYear: "2024", targetYear: "2045", industry: "清洁能源", location: "苏州" },
-  { name: "金风慧能", level: "铂金级", joinYear: "2024", targetYear: "2040", industry: "风电服务", location: "北京" },
+  { name: "协鑫能科", level: "金牌级", joinYear: "2024", targetYear: "2045", industry: "清洁能源", location: "苏州" },
+  { name: "金风慧能", level: "金牌级", joinYear: "2024", targetYear: "2040", industry: "风电服务", location: "北京" },
   { name: "盒马", level: "金牌级", joinYear: "2024", targetYear: "2050", industry: "新零售", location: "上海" },
   { name: "HRS驿舒", level: "金牌级", joinYear: "2024", targetYear: "2050", industry: "企业服务", location: "上海" },
   { name: "COMIN中国", level: "金牌级", joinYear: "2023", targetYear: "2045", industry: "咨询服务", location: "深圳" },
