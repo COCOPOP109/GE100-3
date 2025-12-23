@@ -1,5 +1,3 @@
-
-
 import { NavItem, Member, NewsItem, StandardItem } from './types';
 
 export const NAV_ITEMS: NavItem[] = [
@@ -7,7 +5,6 @@ export const NAV_ITEMS: NavItem[] = [
   { id: 'about', label: '关于倡议' },
   { id: 'join', label: '加入GE1OO' },
   { id: 'resources', label: '资源中心' },
-  { id: 'members', label: '成员单位' },
 ];
 
 export const INITIATORS = [

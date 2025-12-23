@@ -1,20 +1,17 @@
-import React, { useState, useMemo } from 'react';
+import React from 'react';
 import { Navbar } from './components/Layout/Navbar';
 import { Section } from './components/Layout/Section';
 import { GradientText } from './components/UI/GradientText';
 import { Button } from './components/UI/Button';
 import { 
   ArrowRight, 
-  Wind, 
   Zap, 
   Globe, 
   Award, 
   FileText, 
   CheckCircle2,
   Download,
-  Newspaper,
   MapPin,
-  Leaf,
   Factory,
   Building2,
   Users,
@@ -23,37 +20,15 @@ import {
   PenTool,
   Calendar,
   Landmark,
-  GraduationCap,
   ArrowUpRight,
-  Search,
-  Filter,
   Clock,
   Monitor,
   BarChart3
 } from 'lucide-react';
-import { INITIATORS, MEMBER_LOGOS, IMPACT_STATS, STANDARDS, NEWS_DATA, SAMPLE_MEMBERS, CASES } from './constants';
+import { MEMBER_LOGOS, STANDARDS, NEWS_DATA, CASES } from './constants';
 import { motion } from 'framer-motion';
 
 const App: React.FC = () => {
-  // --- Members Filter State ---
-  const [searchTerm, setSearchTerm] = useState('');
-  const [filterIndustry, setFilterIndustry] = useState('All');
-  const [filterYear, setFilterYear] = useState('All');
-
-  // Derive unique options
-  const industries = useMemo(() => ['All', ...Array.from(new Set(SAMPLE_MEMBERS.map(m => m.industry)))], []);
-  const years = useMemo(() => ['All', ...Array.from(new Set(SAMPLE_MEMBERS.map(m => m.targetYear))).sort()], []);
-
-  // Filter Logic
-  const filteredMembers = useMemo(() => {
-    return SAMPLE_MEMBERS.filter(member => {
-      const matchesSearch = member.name.toLowerCase().includes(searchTerm.toLowerCase());
-      const matchesIndustry = filterIndustry === 'All' || member.industry === filterIndustry;
-      const matchesYear = filterYear === 'All' || member.targetYear === filterYear;
-      return matchesSearch && matchesIndustry && matchesYear;
-    });
-  }, [searchTerm, filterIndustry, filterYear]);
-
   return (
     <div className="h-screen w-full bg-slate-50 text-slate-900 overflow-hidden relative font-sans selection:bg-emerald-200 selection:text-emerald-900">
       <Navbar />
@@ -162,11 +137,11 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            {/* Members - Moved Up */}
+            {/* Members List Scrolling */}
             <div>
                <div className="flex items-center justify-center gap-4 mb-2 md:mb-3">
                  <div className="h-px w-6 md:w-8 bg-slate-200"></div>
-                 <span className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-widest">成员单位</span>
+                 <span className="text-[10px] md:text-xs font-bold text-slate-400 uppercase tracking-widest">部分成员单位</span>
                  <div className="h-px w-6 md:w-8 bg-slate-200"></div>
                </div>
                <div className="w-full relative">
@@ -576,9 +551,6 @@ const App: React.FC = () => {
                            目标框架文档 ↳
                         </Button>
                      </a>
-                     <Button variant="outline" size="sm" className="bg-white hover:bg-emerald-50 border-slate-200 hover:border-emerald-200 text-slate-600 hover:text-emerald-700 flex-1 md:flex-initial text-xs md:text-sm">
-                        技术指南 PDF ↳
-                     </Button>
                   </div>
               </div>
 
@@ -879,18 +851,18 @@ const App: React.FC = () => {
 
         {/* --- Screen 11: News --- */}
         <Section id="news" className="bg-white bg-pattern-waves">
-          <div className="max-w-7xl mx-auto w-full">
-             <div className="flex items-end justify-between mb-6 md:mb-12 border-b border-slate-100 pb-4 md:pb-6">
+          <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-center">
+             <div className="flex items-end justify-between mb-6 md:mb-12 border-b border-slate-100 pb-4 md:pb-6 shrink-0">
                <h2 className="text-3xl md:text-4xl font-bold">
                  新闻<GradientText>动态</GradientText>
                </h2>
                <Button variant="outline" className="hidden md:flex">查看所有新闻</Button>
              </div>
 
-             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
+             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 flex-grow">
                {NEWS_DATA.map((news) => (
                  <div key={news.id} className="group flex flex-row md:flex-col gap-3 md:gap-4 cursor-pointer items-center md:items-stretch">
-                   <div className="aspect-[16/10] overflow-hidden rounded-xl md:rounded-2xl relative bg-slate-100 w-1/3 md:w-full">
+                   <div className="aspect-[16/10] overflow-hidden rounded-xl md:rounded-2xl relative bg-slate-100 w-1/3 md:w-full shrink-0">
                      <img src={news.image} alt={news.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                      <div className="absolute top-2 left-2 md:top-4 md:left-4 bg-white/90 backdrop-blur-md px-2 py-1 md:px-3 md:py-1.5 rounded-md md:rounded-lg text-[10px] md:text-xs font-bold text-slate-800 shadow-sm border border-white/50 hidden md:block">
                         {news.date}
@@ -909,154 +881,12 @@ const App: React.FC = () => {
                ))}
                <Button variant="outline" className="md:hidden flex w-full justify-center text-sm">查看所有新闻</Button>
              </div>
-          </div>
-        </Section>
 
-        {/* =================================================================
-           5. 成员单位 (Members)
-           ================================================================= */}
-        
-        {/* --- Screen 12: Members Database --- */}
-        <Section id="members" className="bg-slate-50 bg-pattern-grid">
-          {/* Padding handled by Section wrapper on mobile, but added extra top padding on desktop to clear nav */}
-          <div className="max-w-7xl mx-auto w-full h-full flex flex-col md:pt-36 pb-2 md:pb-10">
-            {/* Header */}
-            <div className="mb-2 md:mb-4 flex flex-col md:flex-row md:items-end justify-between gap-2 md:gap-6">
-              <div>
-                <h2 className="text-2xl md:text-4xl font-bold">
-                  成员<GradientText>单位</GradientText>
-                </h2>
-                <p className="text-slate-500 mt-1 md:mt-2 text-xs md:text-lg">汇聚行业领袖，共创可持续未来</p>
-              </div>
-              <div className="bg-white px-2 py-1.5 md:px-3 md:py-2 rounded-xl border border-slate-200 text-xs font-medium text-slate-600 shadow-sm flex items-center gap-2 w-fit">
-                 <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></div>
-                 <span className="font-bold text-slate-800 text-sm md:text-base leading-none">{filteredMembers.length}</span>
-                 <span className="text-[10px] md:text-xs">家成员单位</span>
-              </div>
-            </div>
-
-            {/* Search Bar - Compact */}
-            <div className="bg-white p-1 rounded-xl border border-slate-200 shadow-sm mb-2 flex flex-col md:flex-row gap-1">
-               {/* Search Input */}
-               <div className="flex-1 relative group">
-                  <div className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-emerald-500 transition-colors">
-                    <Search className="w-3.5 h-3.5 md:w-4 md:h-4" />
-                  </div>
-                  <input 
-                    type="text" 
-                    placeholder="搜索企业名称..." 
-                    className="w-full pl-8 md:pl-9 pr-3 py-1.5 rounded-lg bg-slate-50 border-transparent focus:bg-white focus:ring-1 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all placeholder:text-slate-400 font-medium text-[10px] md:text-xs text-slate-700"
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                  />
-               </div>
-               
-               <div className="flex gap-1 w-full md:w-auto">
-                 {/* Industry Select */}
-                 <div className="flex-1 md:w-48 relative group">
-                     <div className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-emerald-500 transition-colors pointer-events-none">
-                       <Factory className="w-3 h-3 md:w-3.5 md:h-3.5" />
-                     </div>
-                     <select 
-                       className="w-full pl-7 md:pl-8 pr-5 md:pr-6 py-1.5 rounded-lg bg-slate-50 border-transparent focus:bg-white focus:ring-1 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all appearance-none cursor-pointer font-medium text-[10px] md:text-xs text-slate-700"
-                       value={filterIndustry}
-                       onChange={(e) => setFilterIndustry(e.target.value)}
-                     >
-                        {industries.map(ind => (
-                          <option key={ind} value={ind}>{ind === 'All' ? '所有行业' : ind}</option>
-                        ))}
-                     </select>
-                     <div className="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                        <ChevronRight className="w-2.5 h-2.5 md:w-3 md:h-3 rotate-90" />
-                     </div>
-                 </div>
-
-                 {/* Year Select */}
-                 <div className="flex-1 md:w-40 relative group">
-                     <div className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-emerald-500 transition-colors pointer-events-none">
-                       <Target className="w-3 h-3 md:w-3.5 md:h-3.5" />
-                     </div>
-                     <select 
-                       className="w-full pl-7 md:pl-8 pr-5 md:pr-6 py-1.5 rounded-lg bg-slate-50 border-transparent focus:bg-white focus:ring-1 focus:ring-emerald-500/20 focus:border-emerald-500 outline-none transition-all appearance-none cursor-pointer font-medium text-[10px] md:text-xs text-slate-700"
-                       value={filterYear}
-                       onChange={(e) => setFilterYear(e.target.value)}
-                     >
-                        {years.map(yr => (
-                          <option key={yr} value={yr}>{yr === 'All' ? '目标年份' : yr}</option>
-                        ))}
-                     </select>
-                     <div className="absolute right-2 md:right-3 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
-                        <ChevronRight className="w-2.5 h-2.5 md:w-3 md:h-3 rotate-90" />
-                     </div>
-                 </div>
-               </div>
-            </div>
-            
-            {/* Table - Font Sizes Increased */}
-            <div className="flex-1 overflow-auto bg-white rounded-xl md:rounded-[2rem] border border-slate-200 shadow-xl custom-scrollbar relative min-h-0">
-              <table className="w-full text-left border-collapse min-w-[300px] md:min-w-[600px]">
-                <thead className="bg-slate-50/80 backdrop-blur-md sticky top-0 z-10 border-b border-slate-200">
-                  <tr>
-                    <th className="py-2 md:py-3 px-3 md:px-4 text-xs md:text-base font-bold text-slate-500 uppercase tracking-wider pl-4 md:pl-6">公司名称</th>
-                    <th className="py-2 md:py-3 px-3 md:px-4 text-xs md:text-base font-bold text-slate-500 uppercase tracking-wider text-right md:text-left">成员级别</th>
-                    <th className="py-2 md:py-3 px-3 md:px-4 text-sm md:text-lg font-bold text-slate-500 uppercase tracking-wider hidden md:table-cell">行业</th>
-                    <th className="py-2 md:py-3 px-3 md:px-4 text-sm md:text-lg font-bold text-slate-500 uppercase tracking-wider hidden md:table-cell">总部</th>
-                    <th className="py-2 md:py-3 px-3 md:px-4 text-sm md:text-lg font-bold text-slate-500 uppercase tracking-wider text-right pr-6 hidden md:table-cell">目标年份</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-100">
-                  {filteredMembers.length > 0 ? (
-                    filteredMembers.map((m, i) => (
-                      <tr key={i} className="group hover:bg-emerald-50/30 transition-colors cursor-pointer">
-                        <td className="py-2 md:py-3 px-3 md:px-4 pl-4 md:pl-6">
-                           <div className="font-bold text-slate-900 text-base md:text-xl group-hover:text-emerald-700 transition-colors">{m.name}</div>
-                           <div className="md:hidden text-[10px] text-slate-500 mt-0.5 flex items-center gap-1 opacity-80">
-                              <span className="font-mono">{m.targetYear}</span> • {m.industry}
-                           </div>
-                        </td>
-                        <td className="py-2 md:py-3 px-3 md:px-4 text-right md:text-left">
-                          <span className={`inline-flex items-center px-2 py-0.5 md:px-3 md:py-1 rounded-full text-xs md:text-base font-bold border ${
-                            m.level.includes('铂金') || m.level.includes('发起') 
-                              ? 'bg-emerald-100 text-emerald-800 border-emerald-200' 
-                              : 'bg-slate-100 text-slate-600 border-slate-200'
-                          }`}>
-                            {m.level}
-                          </span>
-                        </td>
-                        <td className="py-3 px-4 text-slate-600 hidden md:table-cell font-medium text-lg">
-                           <div className="flex items-center gap-1.5">
-                              {m.industry.includes('制造') || m.industry.includes('能源') ? <Factory className="w-5 h-5 opacity-40"/> : <Building2 className="w-5 h-5 opacity-40"/>}
-                              {m.industry}
-                           </div>
-                        </td>
-                        <td className="py-3 px-4 text-slate-600 hidden md:table-cell text-lg">
-                          <div className="flex items-center gap-1.5">
-                            <MapPin className="w-5 h-5 opacity-40" />
-                            {m.location}
-                          </div>
-                        </td>
-                        <td className="py-3 px-4 pr-6 text-right font-mono font-bold text-slate-900 text-xl group-hover:text-emerald-600 hidden md:table-cell">{m.targetYear}</td>
-                      </tr>
-                    ))
-                  ) : (
-                    <tr>
-                      <td colSpan={5} className="p-8 md:p-12 text-center text-slate-400">
-                        <div className="flex flex-col items-center gap-2">
-                           <Filter className="w-6 h-6 md:w-8 md:h-8 opacity-20" />
-                           <span className="text-xs md:text-base">未找到匹配的成员单位</span>
-                        </div>
-                      </td>
-                    </tr>
-                  )}
-                </tbody>
-              </table>
-            </div>
-            
-            <div className="mt-2 md:mt-4 flex justify-center text-[10px] md:text-xs text-slate-400 pb-0">
-               <div className="text-center">
-                  ©2025 GE1OO  技术支持：湖州新能源云碳中和研究院   备案号：浙ICP备2024078405号-2
-               </div>
-            </div>
+             <div className="mt-8 md:mt-12 flex justify-center text-[10px] md:text-xs text-slate-400 pb-4 shrink-0">
+                <div className="text-center">
+                   ©2025 GE1OO  技术支持：湖州新能源云碳中和研究院   备案号：浙ICP备2024078405号-2
+                </div>
+             </div>
           </div>
         </Section>
 
