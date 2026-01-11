@@ -98,8 +98,8 @@ const App: React.FC = () => {
 
               <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 px-1 md:px-4">
                  {[
-                    { name: "中国电力发展促进会", en: "CEPPC", icon: Zap },
-                    { name: "中国工业节能与清洁生产协会", en: "CIECCPA", icon: Factory },
+                    { name: "中国工业节能与清洁生产协会碳效专委会", en: "CIECCPA", icon: Factory },
+                    { name: "中国电力发展促进会双碳专委会", en: "CEPPC", icon: Zap },
                     { name: "清华大学气候变化与可持续发展研究院", en: "ICCSD", icon: Landmark },
                     { name: "2060零碳企业行动倡议", en: "0CCI", icon: Target }
                  ].map((item, index) => (
@@ -122,8 +122,8 @@ const App: React.FC = () => {
                          </div>
 
                          {/* Text */}
-                         <h4 className="font-bold text-slate-800 text-[10px] md:text-sm leading-snug mb-1 md:mb-2 group-hover:text-slate-900 transition-colors min-h-[2rem] md:min-h-[2.5rem] flex items-center justify-center">
-                            {item.name.includes('清洁生产协会') ? <>中国工业节能与<br/>清洁生产协会</> : item.name.includes('清华') ? <>清华大学<br/>气候变化与可持续发展研究院</> : item.name.includes('2060') ? <>2060零碳企业<br/>行动倡议</> : item.name}
+                         <h4 className="font-bold text-slate-800 text-[10px] md:text-sm leading-snug mb-1 md:mb-2 group-hover:text-slate-900 transition-colors min-h-[2rem] md:min-h-[2.5rem] flex items-center justify-center px-1">
+                            {item.name.includes('清洁生产协会') ? <>中国工业节能与清洁生产协会<br/>碳效专委会</> : item.name.includes('清华') ? <>清华大学<br/>气候变化与可持续发展研究院</> : item.name.includes('2060') ? <>2060零碳企业<br/>行动倡议</> : item.name}
                          </h4>
                          
                          {/* Badge */}
@@ -676,9 +676,9 @@ const App: React.FC = () => {
         </Section>
 
         {/* --- New Section: Services --- */}
-        <Section id="services" className="bg-slate-50 bg-pattern-grid">
-          <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-center">
-            {/* Title */}
+        <Section id="services" className="bg-slate-50 bg-pattern-grid" justify="start">
+          <div className="max-w-7xl mx-auto w-full h-full flex flex-col pt-24 md:pt-40">
+            {/* Title Block - Unified top positioning */}
             <div className="text-center mb-4 md:mb-16 shrink-0">
                <h2 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4">
                  应用<GradientText>工具</GradientText>
@@ -688,15 +688,14 @@ const App: React.FC = () => {
                </p>
             </div>
 
-            {/* Cards - Vertical Stack on Mobile (Compact), Grid on Desktop */}
-            <div className="flex flex-col md:grid md:grid-cols-2 gap-3 md:gap-12 px-4 md:px-0 items-stretch justify-center h-auto md:h-auto">
+            {/* Cards */}
+            <div className="flex flex-col md:grid md:grid-cols-2 gap-3 md:gap-12 px-4 md:px-0 items-stretch justify-start">
                 {/* App 1 */}
-                <div className="group bg-white rounded-2xl md:rounded-[2rem] p-5 md:p-10 shadow-lg md:shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-emerald-200 transition-all hover:-translate-y-2 relative overflow-hidden flex flex-col h-auto md:h-full">
+                <div className="group bg-white rounded-2xl md:rounded-[2rem] p-5 md:p-10 shadow-lg md:shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-emerald-200 transition-all hover:-translate-y-2 relative overflow-hidden flex flex-col h-auto">
                      <div className="absolute top-0 right-0 p-4 md:p-6 opacity-5 group-hover:opacity-10 transition-opacity">
                         <BarChart3 className="w-20 h-20 md:w-32 md:h-32" />
                      </div>
                      <div className="relative z-10 flex flex-col h-full items-start">
-                         {/* Mobile: Icon + Title Row. Desktop: Icon top, Title bottom */}
                          <div className="flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-0 mb-3 md:mb-6 w-full">
                              <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-emerald-100 text-emerald-600 flex items-center justify-center shrink-0 md:mb-6">
                                 <Monitor className="w-5 h-5 md:w-7 md:h-7" />
@@ -714,12 +713,11 @@ const App: React.FC = () => {
                 </div>
 
                 {/* App 2 */}
-                <div className="group bg-white rounded-2xl md:rounded-[2rem] p-5 md:p-10 shadow-lg md:shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-blue-200 transition-all hover:-translate-y-2 relative overflow-hidden flex flex-col h-auto md:h-full">
+                <div className="group bg-white rounded-2xl md:rounded-[2rem] p-5 md:p-10 shadow-lg md:shadow-xl shadow-slate-200/50 border border-slate-100 hover:border-blue-200 transition-all hover:-translate-y-2 relative overflow-hidden flex flex-col h-auto">
                      <div className="absolute top-0 right-0 p-4 md:p-6 opacity-5 group-hover:opacity-10 transition-opacity">
                         <Globe className="w-20 h-20 md:w-32 md:h-32" />
                      </div>
                      <div className="relative z-10 flex flex-col h-full items-start">
-                         {/* Mobile: Icon + Title Row. Desktop: Icon top, Title bottom */}
                          <div className="flex flex-row md:flex-col items-center md:items-start gap-3 md:gap-0 mb-3 md:mb-6 w-full">
                             <div className="w-10 h-10 md:w-14 md:h-14 rounded-xl md:rounded-2xl bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 md:mb-6">
                                 <FileText className="w-5 h-5 md:w-7 md:h-7" />
@@ -741,14 +739,8 @@ const App: React.FC = () => {
 
         {/* --- Screen 10: Event Submission --- */}
         <Section id="resources-events" className="bg-white bg-pattern-waves">
-           {/* Added h-full and justify-center to parent to center vertical content */}
            <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-center">
-              
-              {/* Horizontal Scroll Wrapper for Mobile */}
-              <div className="flex md:grid md:grid-cols-2 gap-4 md:gap-16 items-center overflow-x-auto snap-x snap-mandatory no-scrollbar w-full px-0 md:px-0 pb-2 md:pb-0">
-                  
-                  {/* Left Column: Event Preview */}
-                  {/* Updated to min-w-[100vw] container and w-[92vw] inner for perfect centering and full width feel */}
+              <div className="flex md:grid md:grid-cols-2 gap-4 md:gap-16 items-center overflow-x-auto snap-x snap-mandatory no-scrollbar w-full px-0 pb-2 md:pb-0">
                   <div className="min-w-[100vw] md:min-w-0 snap-center shrink-0 flex flex-col justify-center items-center md:items-stretch">
                      <div className="w-[92vw] md:w-full space-y-3 md:space-y-8 lg:pr-8 p-1 md:p-0">
                         <div className="w-10 h-10 md:w-12 md:h-12 bg-emerald-600 rounded-lg flex items-center justify-center text-white shadow-lg shadow-emerald-600/20">
@@ -764,9 +756,7 @@ const App: React.FC = () => {
                            </p>
                         </div>
 
-                        {/* Event Cards */}
                         <div className="space-y-3 md:space-y-4">
-                           {/* Card 1 */}
                            <div className="relative bg-white rounded-xl md:rounded-2xl border border-slate-200 shadow-sm p-1 transition-all group overflow-hidden">
                                <div className="absolute top-0 left-0 w-1.5 h-full bg-emerald-500"></div>
                                <div className="flex items-center gap-3 p-2 md:p-4 pl-4">
@@ -787,7 +777,6 @@ const App: React.FC = () => {
                                </div>
                            </div>
 
-                           {/* Card 2 */}
                            <div className="relative bg-white rounded-xl md:rounded-2xl border border-slate-200 shadow-sm p-1 transition-all group overflow-hidden">
                                <div className="absolute top-0 left-0 w-1.5 h-full bg-sky-500"></div>
                                <div className="flex items-center gap-3 p-2 md:p-4 pl-4">
@@ -809,15 +798,12 @@ const App: React.FC = () => {
                            </div>
                         </div>
                         
-                        {/* Mobile Hint */}
                         <div className="md:hidden flex items-center gap-1 text-[10px] text-slate-400 font-medium pt-1 animate-pulse">
                            <span>向左滑动申报案例</span> <ArrowRight className="w-3 h-3" />
                         </div>
                      </div>
                   </div>
 
-                  {/* Right Column: Submission Form */}
-                  {/* Updated to min-w-[100vw] container and w-[92vw] inner */}
                   <div className="min-w-[100vw] md:min-w-0 snap-center shrink-0 flex flex-col justify-center items-center md:items-stretch">
                      <div className="w-[92vw] md:w-full bg-white p-4 md:p-10 rounded-2xl shadow-xl border border-slate-100">
                         <h3 className="text-lg md:text-2xl font-bold text-slate-900 mb-4 md:mb-8">申报<GradientText>碳生产力案例</GradientText></h3>
@@ -844,49 +830,52 @@ const App: React.FC = () => {
                         </form>
                      </div>
                   </div>
-                  
               </div>
            </div>
         </Section>
 
         {/* --- Screen 11: News --- */}
-        <Section id="news" className="bg-white bg-pattern-waves">
-          <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-center">
-             <div className="flex items-end justify-between mb-6 md:mb-12 border-b border-slate-100 pb-4 md:pb-6 shrink-0">
-               <h2 className="text-3xl md:text-4xl font-bold">
+        <Section id="news" className="bg-white bg-pattern-waves relative" justify="start">
+          <div className="max-w-7xl mx-auto w-full h-full flex flex-col pt-24 md:pt-40">
+             {/* News Header aligned with Services Header distance from top */}
+             <div className="flex items-end justify-between mb-4 md:mb-12 border-b border-slate-100 pb-2 md:pb-6 shrink-0">
+               <h2 className="text-2xl md:text-4xl font-bold">
                  新闻<GradientText>动态</GradientText>
                </h2>
                <Button variant="outline" className="hidden md:flex">查看所有新闻</Button>
              </div>
 
-             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 flex-grow">
+             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-8 flex-grow mb-6">
                {NEWS_DATA.map((news) => (
-                 <div key={news.id} className="group flex flex-row md:flex-col gap-3 md:gap-4 cursor-pointer items-center md:items-stretch">
-                   <div className="aspect-[16/10] overflow-hidden rounded-xl md:rounded-2xl relative bg-slate-100 w-1/3 md:w-full shrink-0">
+                 <div key={news.id} className="group flex flex-row md:flex-col gap-3 md:gap-4 cursor-pointer items-center md:items-stretch h-fit">
+                   <div className="aspect-[21/9] md:aspect-[16/10] overflow-hidden rounded-xl md:rounded-2xl relative bg-slate-100 w-1/3 md:w-full shrink-0">
                      <img src={news.image} alt={news.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                      <div className="absolute top-2 left-2 md:top-4 md:left-4 bg-white/90 backdrop-blur-md px-2 py-1 md:px-3 md:py-1.5 rounded-md md:rounded-lg text-[10px] md:text-xs font-bold text-slate-800 shadow-sm border border-white/50 hidden md:block">
                         {news.date}
                      </div>
                    </div>
                    <div className="flex-1 flex flex-col justify-center">
-                     <div className="md:hidden text-[10px] text-slate-400 font-bold mb-1">{news.date}</div>
+                     <div className="md:hidden text-[9px] text-slate-400 font-bold mb-0.5">{news.date}</div>
                      <h3 className="text-sm md:text-xl font-bold text-slate-900 mb-1 md:mb-3 leading-snug group-hover:text-emerald-700 transition-colors line-clamp-2">
                        {news.title}
                      </h3>
-                     <div className="mt-auto pt-0 md:pt-2 flex items-center text-xs md:text-sm font-bold text-slate-400 group-hover:text-emerald-600 transition-colors">
-                       阅读全文 <ArrowRight className="w-3 h-3 md:w-4 md:h-4 ml-1 group-hover:translate-x-1 transition-transform" />
+                     <div className="mt-auto pt-0 md:pt-2 flex items-center text-[10px] md:text-sm font-bold text-slate-400 group-hover:text-emerald-600 transition-colors">
+                       阅读全文 <ArrowRight className="w-2.5 h-2.5 md:w-4 md:h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                      </div>
                    </div>
                  </div>
                ))}
-               <Button variant="outline" className="md:hidden flex w-full justify-center text-sm">查看所有新闻</Button>
+               <Button variant="outline" className="md:hidden flex w-full justify-center text-xs py-2 h-9 mt-2">查看所有新闻</Button>
              </div>
+          </div>
 
-             <div className="mt-8 md:mt-12 flex justify-center text-[10px] md:text-xs text-slate-400 pb-4 shrink-0">
-                <div className="text-center">
-                   ©2025 GE1OO  技术支持：湖州新能源云碳中和研究院   备案号：浙ICP备2024078405号-2
-                </div>
-             </div>
+          {/* Footer - Positioned absolutely */}
+          <div className="absolute bottom-4 left-0 right-0 flex justify-center text-[10px] md:text-xs text-slate-400 z-10">
+            <div className="text-center leading-tight">
+               ©2025 GE1OO  技术支持：湖州新能源云碳中和研究院<br className="md:hidden" />
+               <span className="hidden md:inline"> | </span>
+               备案号：浙ICP备2024078405号-2
+            </div>
           </div>
         </Section>
 
