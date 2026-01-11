@@ -98,7 +98,7 @@ const App: React.FC = () => {
 
               <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 px-1 md:px-4">
                  {[
-                    { name: "中国工业节能与清洁生产协会碳效专委会", en: "CIECCPA", icon: Factory },
+                    { name: "中国工业节能与清洁生产协会工业碳效专委会", en: "CIECCPA", icon: Factory },
                     { name: "中国电力发展促进会双碳专委会", en: "CEPPC", icon: Zap },
                     { name: "清华大学气候变化与可持续发展研究院", en: "ICCSD", icon: Landmark },
                     { name: "2060零碳企业行动倡议", en: "0CCI", icon: Target }
@@ -123,8 +123,8 @@ const App: React.FC = () => {
 
                          {/* Text Rendering with custom line breaks for aesthetics */}
                          <h4 className="font-bold text-slate-800 text-[10px] md:text-sm leading-snug mb-1 md:mb-2 group-hover:text-slate-900 transition-colors min-h-[2rem] md:min-h-[2.5rem] flex items-center justify-center px-1">
-                            {item.name === '中国工业节能与清洁生产协会碳效专委会' ? (
-                              <>中国工业节能与清洁生产协会<br/>碳效专委会</>
+                            {item.name === '中国工业节能与清洁生产协会工业碳效专委会' ? (
+                              <>中国工业节能与清洁生产协会<br/>工业碳效专委会</>
                             ) : item.name === '中国电力发展促进会双碳专委会' ? (
                               <>中国电力发展促进会<br/>双碳专委会</>
                             ) : item.name.includes('清华') ? (

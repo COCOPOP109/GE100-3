@@ -8,7 +8,7 @@ export const NAV_ITEMS: NavItem[] = [
 ];
 
 export const INITIATORS = [
-  "中国工业节能与清洁生产协会碳效专委会 (CIECCPA)",
+  "中国工业节能与清洁生产协会工业碳效专委会 (CIECCPA)",
   "中国电力发展促进会双碳专委会 (CEPPC)",
   "清华大学气候变化与可持续发展研究院(ICCSD)",
   "2060零碳企业行动倡议(0CCI)"
