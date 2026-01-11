@@ -53,7 +53,7 @@ const App: React.FC = () => {
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">行动倡议 (GE1OO)</span>
             </h1>
             <p className="text-xs md:text-xl text-slate-100 leading-relaxed max-w-3xl mx-auto font-light tracking-wide opacity-90 line-clamp-4 md:line-clamp-none">
-              GE1OO行动倡议于2023年6月发起，作为国内首个聚焦绿电消费的行动倡议，旨在推动可再生能源的广泛利用，助力中国碳中和目标。目前已得到近百家知名企业和权威机构的支持。
+              GE1OO行动倡议于2023年6月发起，作为国内首个聚焦绿电消费的行动倡议，旨在推动可再生能源的广泛利用，助力中国碳中和目标。目前已得到近百家知名企业 and 权威机构的支持。
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-6 pt-3 md:pt-8">
               <Button 
@@ -121,9 +121,19 @@ const App: React.FC = () => {
                              </div>
                          </div>
 
-                         {/* Text */}
+                         {/* Text Rendering with custom line breaks for aesthetics */}
                          <h4 className="font-bold text-slate-800 text-[10px] md:text-sm leading-snug mb-1 md:mb-2 group-hover:text-slate-900 transition-colors min-h-[2rem] md:min-h-[2.5rem] flex items-center justify-center px-1">
-                            {item.name.includes('清洁生产协会') ? <>中国工业节能与清洁生产协会<br/>碳效专委会</> : item.name.includes('清华') ? <>清华大学<br/>气候变化与可持续发展研究院</> : item.name.includes('2060') ? <>2060零碳企业<br/>行动倡议</> : item.name}
+                            {item.name === '中国工业节能与清洁生产协会碳效专委会' ? (
+                              <>中国工业节能与清洁生产协会<br/>碳效专委会</>
+                            ) : item.name === '中国电力发展促进会双碳专委会' ? (
+                              <>中国电力发展促进会<br/>双碳专委会</>
+                            ) : item.name.includes('清华') ? (
+                              <>清华大学<br/>气候变化与可持续发展研究院</>
+                            ) : item.name.includes('2060') ? (
+                              <>2060零碳企业<br/>行动倡议</>
+                            ) : (
+                              item.name
+                            )}
                          </h4>
                          
                          {/* Badge */}
@@ -558,50 +568,49 @@ const App: React.FC = () => {
         </Section>
 
         {/* --- Screen 8: Contact Form --- */}
-        <Section id="join-form" className="bg-slate-50 bg-pattern-grid">
-           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-12 max-w-7xl mx-auto w-full items-center h-full md:h-auto">
+        <Section id="join-form" className="bg-slate-50 bg-pattern-grid" justify="start">
+           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-12 max-w-7xl mx-auto w-full pt-24 md:pt-40 h-full flex flex-col">
               {/* Swapped order on mobile: Text first (order-1), Form second (order-2) */}
-              <div className="lg:col-span-5 space-y-4 md:space-y-8 order-1 lg:order-1">
+              <div className="lg:col-span-5 space-y-2 md:space-y-8 order-1 lg:order-1 px-4 md:px-0">
                  <h2 className="text-2xl md:text-4xl font-bold">
                    申请加入<br/><GradientText>GE1OO 倡议</GradientText>
                  </h2>
-                 <p className="text-sm md:text-lg text-slate-600 leading-relaxed">
-                   若您审阅上述资料并确认符合GE1OO成员资格条件，请在右侧填写详细信息，我们将尽快与您联系。
+                 <p className="text-xs md:text-lg text-slate-600 leading-tight md:leading-relaxed">
+                   若您审阅上述资料并确认符合GE1OO成员资格条件，请填写详细信息，我们将尽快与您联系。
                  </p>
-                 
               </div>
 
-              <div className="lg:col-span-7 bg-white p-5 md:p-12 rounded-[2rem] md:rounded-[2.5rem] shadow-xl border border-slate-100 relative overflow-hidden order-2 lg:order-2">
+              <div className="lg:col-span-7 bg-white p-4 md:p-12 rounded-[1.5rem] md:rounded-[2.5rem] shadow-xl border border-slate-100 relative overflow-hidden order-2 lg:order-2 flex-grow mb-4 md:mb-0">
                  <div className="absolute top-0 right-0 w-24 h-24 md:w-32 md:h-32 bg-emerald-50 rounded-bl-full -mr-16 -mt-16"></div>
-                 <form className="space-y-3 md:space-y-5 relative z-10" onSubmit={(e) => e.preventDefault()}>
-                    <div className="grid grid-cols-2 gap-3 md:gap-5">
-                       <div className="space-y-1 md:space-y-2">
+                 <form className="space-y-2 md:space-y-5 relative z-10" onSubmit={(e) => e.preventDefault()}>
+                    <div className="grid grid-cols-2 gap-2 md:gap-5">
+                       <div className="space-y-1">
                           <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase">姓名</label>
-                          <input type="text" className="w-full px-3 py-2 md:px-4 md:py-3 rounded-lg md:rounded-xl bg-slate-50 border border-slate-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition-all outline-none text-xs md:text-base" placeholder="您的姓名" />
+                          <input type="text" className="w-full px-3 py-1.5 md:py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-emerald-500 transition-all outline-none text-xs md:text-base" placeholder="您的姓名" />
                        </div>
-                       <div className="space-y-1 md:space-y-2">
+                       <div className="space-y-1">
                           <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase">职务</label>
-                          <input type="text" className="w-full px-3 py-2 md:px-4 md:py-3 rounded-lg md:rounded-xl bg-slate-50 border border-slate-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition-all outline-none text-xs md:text-base" placeholder="您的职务" />
+                          <input type="text" className="w-full px-3 py-1.5 md:py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-emerald-500 transition-all outline-none text-xs md:text-base" placeholder="您的职务" />
                        </div>
                     </div>
                     
-                    <div className="space-y-1 md:space-y-2">
+                    <div className="space-y-1">
                        <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase">单位名称</label>
-                       <input type="text" className="w-full px-3 py-2 md:px-4 md:py-3 rounded-lg md:rounded-xl bg-slate-50 border border-slate-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition-all outline-none text-xs md:text-base" placeholder="企业/机构全称" />
+                       <input type="text" className="w-full px-3 py-1.5 md:py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-emerald-500 transition-all outline-none text-xs md:text-base" placeholder="企业/机构全称" />
                     </div>
 
-                    <div className="grid grid-cols-2 gap-3 md:gap-5">
-                       <div className="space-y-1 md:space-y-2">
+                    <div className="grid grid-cols-2 gap-2 md:gap-5">
+                       <div className="space-y-1">
                           <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase">邮箱</label>
-                          <input type="email" className="w-full px-3 py-2 md:px-4 md:py-3 rounded-lg md:rounded-xl bg-slate-50 border border-slate-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition-all outline-none text-xs md:text-base" placeholder="name@company.com" />
+                          <input type="email" className="w-full px-3 py-1.5 md:py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-emerald-500 transition-all outline-none text-xs md:text-base" placeholder="name@company.com" />
                        </div>
-                       <div className="space-y-1 md:space-y-2">
+                       <div className="space-y-1">
                           <label className="text-[10px] md:text-xs font-bold text-slate-500 uppercase">联系电话</label>
-                          <input type="tel" className="w-full px-3 py-2 md:px-4 md:py-3 rounded-lg md:rounded-xl bg-slate-50 border border-slate-200 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 transition-all outline-none text-xs md:text-base" placeholder="+86 1XX XXXX XXXX" />
+                          <input type="tel" className="w-full px-3 py-1.5 md:py-3 rounded-lg bg-slate-50 border border-slate-200 focus:border-emerald-500 transition-all outline-none text-xs md:text-base" placeholder="1XX XXXX" />
                        </div>
                     </div>
 
-                    <Button size="lg" className="w-full mt-2 font-bold shadow-lg shadow-emerald-500/20 py-3 md:py-3.5 text-sm md:text-lg">提交申请</Button>
+                    <Button size="lg" className="w-full mt-2 font-bold shadow-lg shadow-emerald-500/20 py-2.5 md:py-3.5 text-xs md:text-lg">提交申请</Button>
                  </form>
               </div>
            </div>
