@@ -1,8 +1,10 @@
-
 import { NavItem, Member, NewsItem, StandardItem } from './types';
 
 export const NAV_ITEMS: NavItem[] = [
   { id: 'home', label: '首页' },
+  { id: 'about', label: '关于倡议' },
+  { id: 'join', label: '加入GE1OO' },
+  { id: 'resources', label: '资源中心' },
 ];
 
 export const INITIATORS = [

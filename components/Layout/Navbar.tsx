@@ -17,7 +17,8 @@ export const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Simple scroll spy logic could be implemented here if needed.
+      // Simple spy logic could go here, but since we rely on snap scroll,
+      // active state is less critical than smooth nav.
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
@@ -56,6 +57,12 @@ export const Navbar: React.FC = () => {
                   {item.label}
                 </button>
               ))}
+              <button 
+                onClick={() => scrollToSection('join')}
+                className="bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-6 py-2.5 rounded-full text-sm font-bold shadow-lg shadow-emerald-500/20 hover:shadow-emerald-500/40 hover:-translate-y-0.5 transition-all duration-300"
+              >
+                加入我们
+              </button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -82,6 +89,12 @@ export const Navbar: React.FC = () => {
                   {item.label}
                 </button>
               ))}
+              <button 
+                onClick={() => scrollToSection('join')}
+                className="w-full mt-2 bg-gradient-to-r from-emerald-500 to-teal-600 text-white px-4 py-3 rounded-xl text-center font-bold shadow-lg shadow-emerald-500/20"
+              >
+                加入我们
+              </button>
           </div>
         )}
       </div>
